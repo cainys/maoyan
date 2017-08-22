@@ -6,7 +6,7 @@
                     <i class="iconfont icon-list"></i>
                 </div>
                 <div class="toolbar-title">
-                    movie
+                    卖座电影
                 </div>
             </a>
         </h1>

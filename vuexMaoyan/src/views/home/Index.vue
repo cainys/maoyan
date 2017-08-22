@@ -15,7 +15,7 @@
           <div class="movie">
             <ul class="list-unstyled">
               <li v-for="movie in movies" :key="movie.id">
-                <router-link :to="{name: 'film', params: {id: movie.id}}">
+                <router-link :to="{name: 'filmDetail', params: {id: movie.id}}">
                   <movie-item :item="movie" />
                 </router-link>
               </li>
@@ -23,6 +23,23 @@
           </div>
           <div class="more-buttton">
             更多热映电影
+          </div>
+        </div>
+        <div>
+          <div class="dividing-line">
+            <div class="upcoming">即将上映</div>
+          </div>
+          <div class="movie">
+            <ul class="list-unstyled">
+              <li v-for="movie in comingSoon" :key="movie.id">
+                <router-link :to="{name: 'filmDetail', params: {id: movie.id}}">
+                  <movie-item :item="movie" />
+                </router-link>
+              </li>
+            </ul>
+          </div>
+          <div class="more-buttton">
+            更多即将上映电影
           </div>
         </div>
     </section>
@@ -33,7 +50,7 @@ require('swiper/dist/css/swiper.css')
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import ImagePlaceholder from '@/components/ImagePlaceholder'
 import MovieItem from '@/components/MovieItem'
-import {getSlider, getNowFilm} from '@/api/index'
+import {getSlider, getNowFilm, getSoonFilm} from '@/api/index'
 // {"id":665,"name":"罐头女友","url":"http://cps.maizuo.com/changeUrl.htm?channelId=372&urlId=1977",
 // "imageUrl":"https://pic.maizuo.com/h5PicUpload/af62452085bb3a5ff275feb89c33e134.jpg","weight":9}
 export default {
@@ -45,6 +62,7 @@ export default {
     return {
       items: [],
       movies: [],
+      comingSoon: [],
       swiperOption: {
         autoplay: 1500,
         loop: true,
@@ -62,13 +80,16 @@ export default {
   //   }
   // },
   mounted () {
-    this.getImgData().then(res => {
+    this.getImgData().then(res => { // http://m.maizuo.com/v4/api/billboard/home?__t=1503035600664
       console.log(res.data.data.billboards)
       this.items = res.data.data.billboards
     })
-    getNowFilm().then((res) => {
+    getNowFilm(1, 5).then((res) => {
       console.log(res)
       this.movies = res.data.data.films
+    })
+    getSoonFilm(1, 5).then((res) => {
+      this.comingSoon = res.data.data.films
     })
   },
   methods: {
@@ -115,5 +136,22 @@ export default {
     cursor: pointer;
     font-size: 12px;
   }
+}
+.dividing-line{
+  margin: 30px 0;
+  position: relative;
+  border-bottom: 1px solid #a8a8a8;
+}
+.upcoming{
+  width: 65px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 10px;
+  margin: 0 auto;
+  margin-bottom: -10px;
+  text-align: center;
+  background-color: #a7a7a7;
+  color:#eee;
+  border-radius: 5px;
 }
 </style>

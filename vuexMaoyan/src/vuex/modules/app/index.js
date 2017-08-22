@@ -3,7 +3,8 @@ import * as mutationType from './mutation_type'
 const state = {
   leftNavState: false,
   city: '杭州',
-  loading: false
+  loading: false,
+  currentTab: 'now'
 }
 
 const mutations = { // mutations和actions的区别在于mutation只能是同步函数，actions可以是异步函数
@@ -12,6 +13,9 @@ const mutations = { // mutations和actions的区别在于mutation只能是同步
   },
   [mutationType.TOGGLECITY] (state, city) {
     state.city = city
+  },
+  [mutationType.TOGGLETAB] (state, tab) {
+    state.currentTab = tab
   }
 }
 

@@ -27,7 +27,7 @@ export default {
   data () {
     let menuList = [
         {name: '首页', path: '/'},
-        {name: '影片', path: '/film'},
+        {name: '影片', path: '/filmList'},
         {name: '影院', path: '/cinema'},
         {name: '商城', path: '/shop'},
         {name: '我的', path: '/login'},
@@ -114,6 +114,7 @@ export default {
                         padding: 0 16px;
                         border-bottom: 1px dotted #333;
                         .right{
+                            color: #9a9a9a;
                             font-size: 14px;
                             display: inline-block;
                             float: right;

@@ -1,2 +1,3 @@
 export const TOGGLELEFTNAV = 'TOGGLELEFTNAV'
 export const TOGGLECITY = 'TOGGLECITY'
+export const TOGGLETAB = 'TOGGLETAB'

@@ -43,9 +43,8 @@
 import ImagePlaceholder from '@/components/ImagePlaceholder'
 import {getFilmDetail} from '@/api/index'
 import moment from 'moment'
-// import {getDetail} from '../../vuex/getters'
-// import {fetchFilmDetail} from '../../vuex/actions'
 export default{
+  name: 'filmDetail',
   components: {
     ImagePlaceholder
   },
@@ -70,14 +69,6 @@ export default{
       console.log(res.data.data)
     })
   },
-//   vuex: {
-//     getters: {
-//       film: getDetail
-//     },
-//     actions: {
-//       fetchFilmDetail
-//     }
-//   },
   methods: {
     getTime (date) {
       return moment(date).format('M月DD日上映')
