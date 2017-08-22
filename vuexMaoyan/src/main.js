@@ -6,7 +6,7 @@ import router from './router'
 import store from '@/vuex/store'
 import '@/assets/styles/reset.css'
 import '@/assets/styles/icon.css'
-
+import '@/assets/bootstrap/css/bootstrap.css'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

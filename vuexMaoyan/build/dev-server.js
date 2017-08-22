@@ -25,6 +25,12 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 var compiler = webpack(webpackConfig)
 
+app.middleware = [
+  proxyMiddleware(['/api'], {target: 'https://m.maizuo.com/v4', changeOrigin: true})
+]
+
+app.use(app.middleware)
+
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true

@@ -23,10 +23,25 @@ export default {
 <style>
 *{box-sizing: border-box;}
 body{
+  background-color: #ebebeb;
+  color: #333;
   font-size: 14px;
   font-family: 'Microsoft YaHei', Tahoma, Helvetica, Arial, sans-serif;
 }
+.content{
+  padding: 0px !important;
+  margin: 0 auto !important;
+  width: 600px;
+}
+@media screen and (max-width: 768px){
+  .content{
+    width: auto;
+  }
+}
 #app {
 
+}
+.application-view{
+  padding: 50px 0 0;
 }
 </style>

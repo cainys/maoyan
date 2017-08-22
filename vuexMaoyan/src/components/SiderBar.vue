@@ -7,7 +7,7 @@
                         <nav v-show="getLeftNavState">
                             <ul>
                                 <li v-for="menu in menuList">
-                                    <router-link to="menu.path">
+                                    <router-link :to="menu.path">
                                         <span>{{menu.name}}</span>
                                         <i class="iconfont icon-arrow-right right"></i>
                                     </router-link>
