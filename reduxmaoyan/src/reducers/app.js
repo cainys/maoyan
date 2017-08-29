@@ -1,7 +1,8 @@
 const initialState = {
     leftNavState: false,
     title: '卖座网',
-    city: '杭州'
+    city: '杭州',
+    animateCls: 'normal'
 }
 export default function app(state = initialState, action) {
     switch(action.type) {
@@ -9,6 +10,11 @@ export default function app(state = initialState, action) {
             return Object.assign({}, state, {
                 leftNavState: !state.leftNavState
             })
+        case 'CURRENT_ANIMATE':
+            return {
+                ...state,
+                animateCls: action.cls
+            }
         default:
             return state
     }

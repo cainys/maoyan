@@ -6,7 +6,10 @@
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 1000;
+        z-index: 99;
+        &.sidebar-transition{
+            transition: all ease .5s;
+        }
     }
     .hidden{
         display: none;
@@ -27,6 +30,9 @@
             left: 0px;
             right: 110px;
             bottom: 0px;
+            &.leftNav-transition{
+                transition: right ease .5s;
+            }
             ul{
                 li{
                     line-height: 50px;

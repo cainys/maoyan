@@ -62,7 +62,7 @@ class Index extends Component{
                     {
                         movies.map((movie) => (
                             <li key={movie.id}>
-                                <Link to={"/filmDetail/" + movie.id}>
+                                <Link to={'/filmDetail/' + movie.id}>
                                     <MovieItem item={movie} />
                                 </Link>
                             </li>
@@ -83,7 +83,7 @@ class Index extends Component{
                     {
                         this.state.comingSoon.map((movie) =>(
                             <li key={movie.id}>
-                                <Link to={"/filmDetail/" + movie.id}>
+                                <Link to={'/filmDetail/' + movie.id}>
                                     <MovieItem item={movie} />
                                 </Link>
                             </li>

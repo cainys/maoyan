@@ -75,9 +75,9 @@ export default class Slider extends Component {
         className="slider"
         onMouseOver={this.props.pause?this.pausePlay.bind(this):null} onMouseOut={this.props.pause?this.goPlay.bind(this):null}>
           <ul style={{
-              left: -100 * this.state.nowLocal + "%",
-              transitionDuration: (this.state.spd === 0 ? this.state.spd : this.props.speed) + "s",
-              width: this.props.items.length * 100 + "%"
+              left: -100 * this.state.nowLocal + '%',
+              transitionDuration: (this.state.spd === 0 ? this.state.spd : this.props.speed) + 's',
+              width: this.props.items.length * 100 + '%'
             }}>
               {itemNodes}
           </ul>

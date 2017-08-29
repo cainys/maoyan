@@ -1,7 +1,6 @@
 import React from 'react'
 import ImgPlaceholder from '@/components/imgPlaceholder'
 import {getFilmDetail} from '@/api/index'
-import QueueAnim from 'rc-queue-anim'
 export default class FilmDetail extends React.Component{
     constructor() {
         super()
@@ -35,10 +34,9 @@ export default class FilmDetail extends React.Component{
         console.log('film', film)
 
         return (
-            <QueueAnim delay={1} className="test">
             <section className="content film-view">
                 <div className="film-img-wrap">
-                    <ImgPlaceholder src={film.cover ? film.cover.origin : ""} placeholder="http://static.m.maizuo.com/v4/static/app/asset/3d2cdb3bd9a23609aa2d84e7c2bfd035.png" />
+                    <ImgPlaceholder src={film.cover ? film.cover.origin : ''} placeholder="http://static.m.maizuo.com/v4/static/app/asset/3d2cdb3bd9a23609aa2d84e7c2bfd035.png" />
                 </div>
                 <div>
                     <div className="player_mask hide">
@@ -66,7 +64,7 @@ export default class FilmDetail extends React.Component{
                     </div>
                     <div className="film-word2">
                         <span>上映日期：</span>
-                        <span>{new Date(film.premiereAt).Format("MM月dd日上映")}</span>
+                        <span>{new Date(film.premiereAt).Format('MM月dd日上映')}</span>
                     </div>
                     <div className="film-word3">{film.synopsis}</div>
                     <div className="operation">
@@ -74,7 +72,6 @@ export default class FilmDetail extends React.Component{
                     </div>
                 </div>
             </section>
-            </QueueAnim>
         )
     }
 }

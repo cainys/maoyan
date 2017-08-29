@@ -21,30 +21,30 @@ class Siderbar extends Component{
         ]
     }
     render() {
+        let {leftNavState} = this.props
         let aside = null
-        if(this.props.leftNavState) {
-            aside = <div className="sidebar-container" onClick={this.props.changeAside.bind(this)}>
+        if(leftNavState) {
+            aside = <div className="sidebar-container sidebar-transition" onClick={this.props.changeAside.bind(this)}>
                             <div className="sidebar-overlay">
-                                <nav>
-                                    <ul>
-                                        {
-                                            this.state.menuList.map(menu => (
-                                                <li key={menu.name}>
-                                                    <Link to={menu.path}>
-                                                        <span>{menu.name}</span>
-                                                        <i className="iconfont icon-arrow-right right" />
-                                                    </Link>
-                                                </li>
-                                            ))
-                                        }
-                                    </ul>
-                                </nav>
+                                    <nav className="leftNav-transition">
+                                        <ul>
+                                            {
+                                                this.state.menuList.map(menu => (
+                                                    <li key={menu.name}>
+                                                        <Link to={menu.path}>
+                                                            <span>{menu.name}</span>
+                                                            <i className="iconfont icon-arrow-right right" />
+                                                        </Link>
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </nav>
                             </div>
-                        </div>
+                    </div>
         } else {
             aside = <span />
         }
-
         return (
                 <aside className="application-sidebar">
                     {aside}

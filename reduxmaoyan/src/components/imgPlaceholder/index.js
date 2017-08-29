@@ -4,8 +4,8 @@ import './index.less'
 
 class ImgPlaceholder extends React.Component{
     static propTypes = {
-        src: PropTypes.string,
-        placeholder: PropTypes.string
+      src: PropTypes.string,
+      placeholder: PropTypes.string
     }
     render() {
         return (
