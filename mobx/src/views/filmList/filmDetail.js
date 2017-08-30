@@ -1,22 +1,29 @@
 import React from 'react'
 import ImgPlaceholder from '@/components/imgPlaceholder'
 import {getFilmDetail} from '@/api/index'
+import QueueAnim from 'rc-queue-anim'
 export default class FilmDetail extends React.Component{
     constructor() {
         super()
         this.state = {
-            film: {}
+            film: {},
+            show: false
         }
     }
 
     componentWillMount() {
         getFilmDetail(this.props.match.params.id).then(res => {
-            // this.film = res.data.data.film
+
             this.setState({
-                film: res.data.data.film
+                film: res.data.data.film,
+                show: true
             })
-            console.log(res.data.data.film)
+
         })
+    }
+
+    componentDidMount() {
+
     }
 
     getActors() {
@@ -30,7 +37,7 @@ export default class FilmDetail extends React.Component{
     }
 
     render() {
-        let {film} = this.state
+        let {film, show} = this.state
         console.log('film', film)
 
         return (
@@ -43,34 +50,40 @@ export default class FilmDetail extends React.Component{
                         <div id="youkuplayer" className="prevue-player" />
                     </div>
                 </div>
-                <div className="film-intro">
-                    <div className="film-word1">影片简介</div>
-                    <div className="film-word2">
-                        <span>导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</span>
-                        <span>{film.director}</span>
-                    </div>
-                    <div className="film-word2">
-                        <span>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</span>
-                        <span>{this.getActors.bind(this)()}</span>
-                    </div>
-                    <div className="film-word2">
-                        <span>地区语言：</span>
-                        <span>{film.nation}</span>
-                        <span>(</span><span>{film.language}</span><span>)</span>
-                    </div>
-                    <div className="film-word2">
-                        <span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
-                        <span>{film.category}</span>
-                    </div>
-                    <div className="film-word2">
-                        <span>上映日期：</span>
-                        <span>{new Date(film.premiereAt).Format('MM月dd日上映')}</span>
-                    </div>
-                    <div className="film-word3">{film.synopsis}</div>
-                    <div className="operation">
-                        <button className="cpn-primary-button ">立即购票</button>
-                    </div>
-                </div>
+                <QueueAnim type={['right', 'left']} className="demo-content">
+                {
+                    show ? [
+                    <div className="film-intro" key="intro">
+                            <div className="film-word1">影片简介</div>
+                            <div className="film-word2">
+                                <span>导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</span>
+                                <span>{film.director}</span>
+                            </div>
+                            <div className="film-word2">
+                                <span>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：</span>
+                                <span>{this.getActors.bind(this)()}</span>
+                            </div>
+                            <div className="film-word2">
+                                <span>地区语言：</span>
+                                <span>{film.nation}</span>
+                                <span>(</span><span>{film.language}</span><span>)</span>
+                            </div>
+                            <div className="film-word2">
+                                <span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</span>
+                                <span>{film.category}</span>
+                            </div>
+                            <div className="film-word2">
+                                <span>上映日期：</span>
+                                <span>{new Date(film.premiereAt).Format('MM月dd日上映')}</span>
+                            </div>
+                            <div className="film-word3">{film.synopsis}</div>
+                            <div className="operation">
+                                <button className="cpn-primary-button ">立即购票</button>
+                            </div>
+                        </div>
+                    ] : null
+                }
+                </QueueAnim>
             </section>
         )
     }

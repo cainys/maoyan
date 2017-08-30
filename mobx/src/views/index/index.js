@@ -4,6 +4,7 @@ import './index.less'
 import Slider from '@/components/slider/slider'
 import MovieItem from '@/components/movieItem/movieItem'
 import {getSlider, getNowFilm, getSoonFilm} from '@/api/index'
+import QueueAnim from 'rc-queue-anim'
 
 class Index extends Component{
     constructor() {
@@ -52,6 +53,7 @@ class Index extends Component{
         let {movies} = this.state
         console.log(this.state.imgDate)
         return (
+            <QueueAnim delay={800} className="queue-simple">
             <section className="content">
                 <div className="slick-slider">
                     <Slider items={this.state.imgDate} speed={1.2} delay={2.1} pause autoplay dots={false} arrows={false} />
@@ -96,6 +98,7 @@ class Index extends Component{
                 </div>
                 </div>
             </section>
+            </QueueAnim>
         )
     }
 }
