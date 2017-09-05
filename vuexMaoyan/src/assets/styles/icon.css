@@ -1,10 +1,10 @@
 
 @font-face {font-family: "iconfont";
-  src: url(http://static.m.maizuo.com/v4/static/app/asset/7e4bed6e373e908960b0adbc9ef53403.eot); /* IE9*/
-  src: url(http://static.m.maizuo.com/v4/static/app/asset/7e4bed6e373e908960b0adbc9ef53403.eot#iefix) format('embedded-opentype'),
-  url(http://static.m.maizuo.com/v4/static/app/asset/1be01d6a5654ebd4a4a26b7c158833e6.woff) format('woff'),
-  url(http://static.m.maizuo.com/v4/static/app/asset/07552dd9cfd47c45209b2a3aac07d756.ttf) format('truetype'),
-  url(http://static.m.maizuo.com/v4/static/app/asset/2714d152351dfb89c25b7eb385736246.svg#iconfont) format('svg'); /* iOS 4.1- */
+  src: url(https://static.m.maizuo.com/v4/static/app/asset/7e4bed6e373e908960b0adbc9ef53403.eot); /* IE9*/
+  src: url(https://static.m.maizuo.com/v4/static/app/asset/7e4bed6e373e908960b0adbc9ef53403.eot#iefix) format('embedded-opentype'),
+  url(https://static.m.maizuo.com/v4/static/app/asset/1be01d6a5654ebd4a4a26b7c158833e6.woff) format('woff'),
+  url(https://static.m.maizuo.com/v4/static/app/asset/07552dd9cfd47c45209b2a3aac07d756.ttf) format('truetype'),
+  url(https://static.m.maizuo.com/v4/static/app/asset/2714d152351dfb89c25b7eb385736246.svg#iconfont) format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {

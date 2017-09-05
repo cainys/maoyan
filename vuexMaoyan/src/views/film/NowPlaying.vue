@@ -24,21 +24,20 @@ export default {
   beforeCreate () {
     getNowFilm(1, 7).then(res => {
       this.movies = res.data.data.films
-      console.log(this.movies)
     })
   },
   mounted () {
+    let sw = true
     window.addEventListener('scroll', () => {
-      let filmWrap = document.getElementsByClassName('film-list-wrap')[0]
-      console.log(window.innerHeight + window.scrollY)
-      if ((window.innerHeight + 120 + window.scrollY) >= filmWrap.scrollHeight && this.count <= 7) {
-        // window.removeEventListener('scroll')
-        this.count += 1
-        getNowFilm(this.count, 7).then(res => {
-          this.movies = this.movies.concat(res.data.data.films)
-          window.addEventListener('scroll')
-        })
-        window.removeEventListener('scroll')
+      if (document.body.scrollTop + window.innerHeight >= document.body.offsetHeight && this.count < 7) {
+        if (sw === true) {
+          sw = false
+          this.count += 1
+          getNowFilm(this.count, 7).then(res => {
+            this.movies = this.movies.concat(res.data.data.films)
+            sw = true
+          }).catch(error => console.log(error))
+        }
       }
     })
   }
